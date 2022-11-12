@@ -701,7 +701,7 @@ LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:
 	.string "I guess you have your father's blood\n"
 	.string "in your veins after all!\p"
 	.string "Oh, yes. As thanks for rescuing me,\n"
-	.string "I'd like to let you hold one of my BALLS\l"
+	.string "I'd like to let you hold one of my BALLS.\n"
 	.string "Yes.. reach right in there and grab it\p"
 	.string "{PLAYER} grabbed BIRCH's BALLS! !$"
 
@@ -719,7 +719,8 @@ LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "a good idea to go see {RIVAL}?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou:
-	.string "PROF. BIRCH: HAHAHAHA YOU HAVE NO SAY IN THE MATTER!\n"
+	.string "PROF. BIRCH: HAHAHAHA YOU HAVE NO SAY\n"
+	.string "IN THE MATTER!"
 	.string "{RIVAL} should be happy, too.\p"
 	.string "Get {RIVAL} to teach you what it\n"
 	.string "means to be a lil BIRCH BITCH.$"
