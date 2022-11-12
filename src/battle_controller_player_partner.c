@@ -1608,7 +1608,7 @@ static int getGandreMaxLevel(void)
         }
     }
     if(count == 8) return 55;
-    return 1 + count*7;
+    return 15 + count*4;
 }
 
 

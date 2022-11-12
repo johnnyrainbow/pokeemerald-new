@@ -3171,7 +3171,7 @@ static float getGandreXp(void)
     }
     if (count == 8)
         return 2;
-    return 0.85 + count * 0.15;
+    return 0.85 + count * 0.25;
 }
 
 static void Cmd_getexp(void)
