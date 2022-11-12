@@ -93,13 +93,13 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Gabrielle1[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntPetalburgWoods[] = {
     {
-        .iv = 0,
+        .iv = 50,
         .lvl = 11,
         .species = SPECIES_POOCHYENA,
 
     },
     {
-        .iv = 0,
+        .iv = 30,
         .lvl = 10,
         .species = SPECIES_SABLEYE,
 
@@ -157,9 +157,14 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Declan[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntRusturfTunnel[] = {
     {
-        .iv = 0,
-        .lvl = 11,
-        .species = SPECIES_POOCHYENA,
+        .iv = 100,
+        .lvl = 12,
+        .species = SPECIES_SABLEYE,
+    },
+    {
+        .iv = 50,
+        .lvl = 14,
+        .species = SPECIES_MIGHTYENA,
     }};
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntWeatherInst1[] = {
@@ -231,34 +236,34 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntMuseum2[] = {
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntSpaceCenter1[] = {
     {
-        .iv = 0,
-        .lvl = 32,
+        .iv = 200,
+        .lvl = 36,
         .species = SPECIES_NUMEL,
     }};
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre1[] = {
     {
-        .iv = 0,
+        .iv = 200,
         .lvl = 32,
         .species = SPECIES_ZUBAT,
     }};
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre2[] = {
     {
-        .iv = 0,
+        .iv = 100,
         .lvl = 32,
         .species = SPECIES_CARVANHA,
     }};
 
 static const struct TrainerMonNoItemDefaultMoves sParty_GruntMtPyre3[] = {
     {
-        .iv = 0,
-        .lvl = 30,
-        .species = SPECIES_POOCHYENA,
+        .iv = 150,
+        .lvl = 32,
+        .species = SPECIES_MIGHTYENA,
     },
     {
-        .iv = 0,
-        .lvl = 30,
+        .iv = 200,
+        .lvl = 34,
         .species = SPECIES_CARVANHA,
     }};
 
