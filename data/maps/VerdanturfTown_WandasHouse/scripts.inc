@@ -91,8 +91,8 @@ VerdanturfTown_WandasHouse_Text_StrongerSpeech:
 	.string "a great TRAINER.\p"
 	.string "Please watch me, {PLAYER}.\n"
 	.string "I'm going to be stronger than you.\p"
-	.string "When I do, I'm going to challenge you\n"
-	.string "to another battle.$"
+	.string "When I do, I'm gonna BEAT THE LIVING SHIT\n"
+	.string "OUT OF YOU.$"
 
 VerdanturfTown_WandasHouse_Text_StrongerSpeechShort:
 	.string "WALLY: Please watch me, {PLAYER}.\n"

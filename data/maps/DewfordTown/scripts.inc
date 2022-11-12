@@ -671,7 +671,7 @@ DewfordTown_Text_SetSailBackToPetalburg:
 DewfordTown_Text_PetalburgWereSettingSail2:
 	.string "MR. BRINEY: PETALBURG it is, then!\p"
 	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "I AM THE DARK LORD, HERE TO SWALLOW THE EARTH!$"
 
 DewfordTown_Text_GoDeliverIllBeWaiting:
 	.string "MR. BRINEY: Then you go on and deliver\n"
@@ -691,16 +691,17 @@ DewfordTown_Text_WhereAreWeBound:
 DewfordTown_Text_PetalburgWereSettingSail:
 	.string "MR. BRINEY: PETALBURG, is it?\p"
 	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "THOUSANDS WILL PERISH BY MY HAND"
 
 DewfordTown_Text_SlateportWereSettingSail:
 	.string "MR. BRINEY: SLATEPORT, is it?\p"
 	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "THE SEA WILL TURN RED \n"
+	.string "WITH THE BLOOD OF MY ENEMIES"
 
 DewfordTown_Text_JustTellMeWhenYouNeedToSetSail:
-	.string "MR. BRINEY: You just tell me whenever\n"
-	.string "you need to set sail again!$"
+	.string "MR. BRINEY: I DIED 40 YEARS AGO\n"
+	.string "MY SOUL IS TRAPPED. HELP ME!!!!!$"
 
 DewfordTown_Text_GettingItchToFish:
 	.string "This is a renowned fishing spot.\n"

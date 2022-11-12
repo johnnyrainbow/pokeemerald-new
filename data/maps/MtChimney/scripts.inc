@@ -534,13 +534,8 @@ MtChimney_EventScript_SawyerRematch::
 	end
 
 MtChimney_Text_MeteoriteWillActivateVolcano:
-	.string "The power contained in the METEORITE…\p"
-	.string "By amplifying its power with this\n"
-	.string "machine, MT. CHIMNEY's volcanic\l"
-	.string "activity will instantly intensify…\p"
-	.string "Its energy will grow deep inside\n"
-	.string "the crater and…\l"
-	.string "Fufufu…$"
+	.string "DEATH TO ALL THINGS\p"
+
 
 MtChimney_Text_MaxieIntro:
 	.string "MAXIE: Hm?\n"
@@ -572,7 +567,7 @@ MtChimney_Text_MaxieIntro:
 
 MtChimney_Text_MaxieDefeat:
 	.string "What?!\p"
-	.string "I, MAXIE, was caught off guard?!$"
+	.string "FUCK IT I'M SETTING IT OFF ANYWAY!$"
 
 MtChimney_Text_MaxieYouHaventSeenLastOfMagma:
 	.string "MAXIE: But, enough.\n"
