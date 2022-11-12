@@ -2718,6 +2718,7 @@ static int getGandreMaxLevel(void)
 
     if (count == 8)
         return 56;
+
     return 15 + count * 4;
 }
 
@@ -2725,7 +2726,7 @@ static void PlayerHandleExpUpdate(void)
 {
     u8 monId = gBattleBufferA[gActiveBattler][1];
 
-    if (GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL) >= 1)
+    if (GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL) >= MAX_LEVEL)
     {
         PlayerBufferExecCompleted();
     }
@@ -2743,7 +2744,7 @@ static void PlayerHandleExpUpdate(void)
         expPointsToGive = T1_READ_16(&gBattleBufferA[gActiveBattler][2]);
         taskId = CreateTask(Task_GiveExpToMon, 10);
         gTasks[taskId].tExpTask_monId = monId;
-        gTasks[taskId].tExpTask_gainedExp = 1;
+        gTasks[taskId].tExpTask_gainedExp = expPointsToGive;
         gTasks[taskId].tExpTask_battler = gActiveBattler;
         gBattlerControllerFuncs[gActiveBattler] = BattleControllerDummy;
     }

@@ -3169,8 +3169,7 @@ static float getGandreXp(void)
             count++;
         }
     }
-    if (count == 8)
-        return 2;
+
     return 0.85 + count * 0.25;
 }
 
