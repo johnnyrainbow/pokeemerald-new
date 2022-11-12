@@ -83,10 +83,10 @@ VerdanturfTown_WandasHouse_EventScript_WallysAuntEverGrande::
 	end
 
 VerdanturfTown_WandasHouse_Text_StrongerSpeech:
-	.string "WALLY: I lost to you, {PLAYER}, but I'm\n"
-	.string "not feeling down anymore.\p"
-	.string "Because I have a new purpose in life.\n"
-	.string "Together with my RALTS, I'm going\l"
+	.string "WALLY: I lost to you, {PLAYER}, and I \n"
+	.string "want to kill myself, god.\p"
+	.string "Because I have no purpose in life.\n"
+	.string "Together with my HOT BABE GARDY, I'm going\l"
 	.string "to challenge POKéMON GYMS and become\l"
 	.string "a great TRAINER.\p"
 	.string "Please watch me, {PLAYER}.\n"
