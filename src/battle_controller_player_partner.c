@@ -12,6 +12,7 @@
 #include "item_use.h"
 #include "link.h"
 #include "main.h"
+#include "constants/flags.h"
 #include "m4a.h"
 #include "palette.h"
 #include "pokeball.h"
@@ -26,6 +27,7 @@
 #include "constants/battle_anim.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "event_data.h"
 
 static void PlayerPartnerHandleGetMonData(void);
 static void PlayerPartnerHandleGetRawMonData(void);
@@ -1589,12 +1591,35 @@ static void PlayerPartnerHandleHealthBarUpdate(void)
 
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnHealthbarDone;
 }
+static const u16 sBadgeFlags[8] =
+{
+    FLAG_BADGE01_GET, FLAG_BADGE02_GET, FLAG_BADGE03_GET, FLAG_BADGE04_GET,
+    FLAG_BADGE05_GET, FLAG_BADGE06_GET, FLAG_BADGE07_GET, FLAG_BADGE08_GET,
+};
+static int getGandreMaxLevel(void)
+{
+    s32 i, count;
+    count = 0;
+    for (i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
+    {
+        if (FlagGet(sBadgeFlags[i]) == TRUE)
+        {
+          count++;
+        }
+    }
+    if(count == 8) return 55;
+    return 1 + count*7;
+}
+
 
 static void PlayerPartnerHandleExpUpdate(void)
 {
     u8 monId = gBattleBufferA[gActiveBattler][1];
 
     if (GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL) >= MAX_LEVEL)
+    {
+        PlayerPartnerBufferExecCompleted();
+    }else if (GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL) >= getGandreMaxLevel())
     {
         PlayerPartnerBufferExecCompleted();
     }
