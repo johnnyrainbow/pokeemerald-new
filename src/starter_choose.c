@@ -23,6 +23,7 @@
 #include "window.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "random.h"
 
 #define STARTER_MON_COUNT   3
 
@@ -117,9 +118,9 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
+    SPECIES_VAPOREON,
+    SPECIES_JOLTEON,
+    SPECIES_FLAREON,
 };
 
 static const struct BgTemplate sBgTemplates[3] =
@@ -351,14 +352,39 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
     .affineAnims = sAffineAnims_StarterCircle,
     .callback = SpriteCB_StarterPokemon
 };
+static u16 randInRange(int min, int max)
+{
+    return (Random() % (max + 1 - min)) + min;
+}
 
-// .text
+static u16 getRandomPokemon()
+{
+    int kant_min = 1;
+    int kant_max = 248;
+    int hoen_min = 277;
+    int hoen_max = 400;
+    int dex_decider = randInRange(0, 1);
+    int min, max;
+    if (dex_decider == 0)
+    {
+        min = hoen_min;
+        max = hoen_max;
+    }
+    else
+    {
+        min = kant_min;
+        max = kant_max;
+    }
+    return randInRange(min, max);
+}
+
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
     return sStarterMon[chosenStarterId];
 }
+
 
 static void VblankCB_StarterChoose(void)
 {
