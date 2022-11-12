@@ -119,7 +119,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GROUDON_SIDE",
+      "graphics_id": "OBJ_EVENT_GFX_MOM",
       "x": 28,
       "y": 44,
       "elevation": 0,
@@ -132,7 +132,7 @@
       "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_GROUDON"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_SIDE",
+      "graphics_id": "OBJ_EVENT_GFX_SCOTT",
       "x": 34,
       "y": 44,
       "elevation": 1,
@@ -210,7 +210,7 @@
       "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "graphics_id": "OBJ_EVENT_GFX_GROUDON_FRONT",
       "x": 29,
       "y": 33,
       "elevation": 3,
@@ -223,7 +223,7 @@
       "flag": "FLAG_HIDE_SOOTOPOLIS_CITY_MAXIE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ARCHIE",
+      "graphics_id": "OBJ_EVENT_GFX_KYOGRE_FRONT",
       "x": 31,
       "y": 33,
       "elevation": 3,
