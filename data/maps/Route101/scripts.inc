@@ -84,35 +84,38 @@ Route101_Movement_PreventExitNorth:
 	step_end
 
 Route101_Movement_ZigzagoonChaseInCircles:
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
 	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_right
+	walk_fast_left
+	walk_fast_right
+	walk_fast_left
+	walk_fast_right
+	walk_fast_left
+	walk_fast_right
+	walk_fast_down
+	walk_fast_up
+	walk_fast_left
 	walk_fast_right
 	walk_fast_right
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
 	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
 	walk_fast_left
 	step_end
 
@@ -123,16 +126,17 @@ Route101_Movement_ZigzagoonChase1:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_up
+	walk_in_place_faster_left
 	step_end
 
 @ Leftover data? This command is unused.
 	step_end
 
 Route101_Movement_ZigzagoonFaceBirch:
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	walk_in_place_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	step_end
 
 Route101_Movement_EnterScene:
@@ -144,35 +148,33 @@ Route101_Movement_EnterScene:
 	step_end
 
 Route101_Movement_BirchRunInCircles:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
 	walk_fast_up
+	walk_fast_left
+	walk_fast_down
+	walk_fast_right
+	walk_fast_left
+	walk_fast_right
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_down
-	walk_fast_down
 	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
 	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
 	walk_fast_left
 	step_end
 
@@ -182,17 +184,20 @@ Route101_Movement_BirchRunAway1:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_up
-	walk_fast_up
+	walk_in_place_fast_left
 	step_end
 
 @ Leftover data? This command is unused.
 	step_end
 
 Route101_Movement_BirchFaceZigzagoon:
-	walk_in_place_fast_right
-	walk_in_place_fast_right
-	walk_in_place_fast_right
-	walk_in_place_fast_right
+    walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
 	step_end
 
 Route101_Movement_Unused1:
