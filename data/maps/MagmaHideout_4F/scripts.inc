@@ -191,18 +191,19 @@ MagmaHideout_4F_Text_TabithaPostBattle:
 MagmaHideout_4F_Text_MaxieAwakenGroudon:
 	.string "MAXIE: GROUDON…\p"
 	.string "Nothing could awaken you from your\n"
-	.string "sleep bathed in magma…\p"
-	.string "This BLUE ORB is what you sought.\n"
+	.string "sleep bathed in piss…\p"
+	.string "This ice cream sandwich \n" 
+	.string "is what you sought.\n"
 	.string "Wasn't it?\p"
-	.string "I have brought you the BLUE ORB.\n"
+	.string "I have gonohrrea.\n"
 	.string "Let its shine awaken you!\p"
 	.string "And show me…\n"
-	.string "Show me the full extent of your power!$"
+	.string "Show me the full extent of your penis!$"
 
 MagmaHideout_4F_Text_MaxieGroudonWhatsWrong:
 	.string "MAXIE: GROUDON!\n"
-	.string "What's wrong?\p"
-	.string "Wasn't the BLUE ORB the key?\p"
+	.string "What's wrong my son?\p"
+	.string "Wasn't my piss the key?\p"
 	.string "GROUDON!\n"
 	.string "Where have you gone…$"
 
