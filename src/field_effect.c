@@ -332,7 +332,7 @@ static const struct SpriteFrameImage sPicTable_NewGameBirch[] =
 
 static const struct SpritePalette sSpritePalette_NewGameBirch =
 {
-    .data = sNewGameBirch_Pal,
+    .data = sHofMonitor_Pal,
     .tag = 0x1006
 };
 
