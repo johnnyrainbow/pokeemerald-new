@@ -567,19 +567,19 @@ void ShowStartMenu(void)
 
 static bool8 HandleStartMenuInput(void)
 {
-    if (JOY_NEW(DPAD_UP))
+    if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(-1);
     }
 
-    if (JOY_NEW(DPAD_DOWN))
+    if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
         sStartMenuCursorPos = Menu_MoveCursor(1);
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         if (sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void == StartMenuPokedexCallback)
@@ -601,7 +601,7 @@ static bool8 HandleStartMenuInput(void)
         return FALSE;
     }
 
-    if (JOY_NEW(START_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(START_BUTTON | B_BUTTON))
     {
         RemoveExtraStartMenuWindows();
         HideStartMenu();

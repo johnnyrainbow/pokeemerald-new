@@ -335,11 +335,11 @@ s32 DoMysteryGiftListMenu(const struct WindowTemplate *windowTemplate, const str
         break;
     case 1:
         sMysteryGiftLinkMenu.currItemId = ListMenu_ProcessInput(sMysteryGiftLinkMenu.listTaskId);
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             sMysteryGiftLinkMenu.state = 2;
         }
-        if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             sMysteryGiftLinkMenu.currItemId = LIST_CANCEL;
             sMysteryGiftLinkMenu.state = 2;
@@ -410,11 +410,11 @@ s32 ListMenu_ProcessInput(u8 listTaskId)
 {
     struct ListMenu *list = (void *) gTasks[listTaskId].data;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         return list->template.items[list->scrollOffset + list->selectedRow].id;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return LIST_CANCEL;
     }

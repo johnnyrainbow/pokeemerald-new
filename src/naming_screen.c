@@ -737,7 +737,7 @@ static void DisplaySentToPCMessage(void)
 static bool8 MainState_WaitSentToPCMessage(void)
 {
     RunTextPrinters();
-    if (!IsTextPrinterActive(0) && JOY_NEW(A_BUTTON))
+    if (!IsTextPrinterActive(0) && JOY_NEW_GAB_REAL(A_BUTTON))
         sNamingScreen->state = STATE_FADE_OUT;
 
     return FALSE;
@@ -1582,13 +1582,13 @@ static void Input_Enabled(struct Task *task)
 {
     task->tKeyboardEvent = INPUT_NONE;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
         task->tKeyboardEvent = INPUT_A_BUTTON;
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
         task->tKeyboardEvent = INPUT_B_BUTTON;
-    else if (JOY_NEW(SELECT_BUTTON))
+    else if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         task->tKeyboardEvent = INPUT_SELECT;
-    else if (JOY_NEW(START_BUTTON))
+    else if (JOY_NEW_GAB_REAL(START_BUTTON))
         task->tKeyboardEvent = INPUT_START;
     else
         HandleDpadMovement(task);

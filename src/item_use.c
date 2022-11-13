@@ -795,7 +795,7 @@ static void BootUpSoundTMHM(u8 taskId)
 
 static void Task_ShowTMHMContainedMessage(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         StringCopy(gStringVar1, gMoveNames[ItemIdToBattleMoveId(gSpecialVar_ItemId)]);
         StringExpandPlaceholders(gStringVar4, gText_TMHMContainedVar1);

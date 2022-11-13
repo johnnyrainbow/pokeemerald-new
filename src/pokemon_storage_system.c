@@ -1563,9 +1563,9 @@ static void Task_PCMainMenu(u8 taskId)
         {
         case MENU_NOTHING_CHOSEN:
             task->tNextOption = task->tSelectedOption;
-            if (JOY_NEW(DPAD_UP) && --task->tNextOption < 0)
+            if (JOY_NEW_GAB_REAL(DPAD_UP) && --task->tNextOption < 0)
                 task->tNextOption = OPTIONS_COUNT - 1;
-            if (JOY_NEW(DPAD_DOWN) && ++task->tNextOption > OPTIONS_COUNT - 1)
+            if (JOY_NEW_GAB_REAL(DPAD_DOWN) && ++task->tNextOption > OPTIONS_COUNT - 1)
                 task->tNextOption = 0;
 
             if (task->tSelectedOption != task->tNextOption)
@@ -1610,13 +1610,13 @@ static void Task_PCMainMenu(u8 taskId)
     case STATE_ERROR_MSG:
         // Printed "can't do PC option message"
         // Wait for new input after message
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
         {
             FillWindowPixelBuffer(0, PIXEL_FILL(1));
             AddTextPrinterParameterized2(0, FONT_NORMAL, sMainMenuTexts[task->tSelectedOption].desc, 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
             task->tState = STATE_HANDLE_INPUT;
         }
-        else if (JOY_NEW(DPAD_UP))
+        else if (JOY_NEW_GAB_REAL(DPAD_UP))
         {
             if (--task->tSelectedOption < 0)
                 task->tSelectedOption = OPTIONS_COUNT - 1;
@@ -1626,7 +1626,7 @@ static void Task_PCMainMenu(u8 taskId)
             AddTextPrinterParameterized2(0, FONT_NORMAL, sMainMenuTexts[task->tSelectedOption].desc, 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
             task->tState = STATE_HANDLE_INPUT;
         }
-        else if (JOY_NEW(DPAD_DOWN))
+        else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
         {
             if (++task->tSelectedOption >= OPTIONS_COUNT - 1)
                 task->tSelectedOption = 0;
@@ -1806,22 +1806,22 @@ static void DestroyChooseBoxMenuSprites(void)
 // For the popout window when choosing a box to deposit in or jump to
 static u8 HandleChooseBoxMenuInput(void)
 {
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         return BOXID_CANCELED;
     }
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         return sChooseBoxMenu->curBox;
     }
-    if (JOY_NEW(DPAD_LEFT))
+    if (JOY_NEW_GAB_REAL(DPAD_LEFT))
     {
         PlaySE(SE_SELECT);
         ChooseBoxMenu_MoveLeft();
     }
-    else if (JOY_NEW(DPAD_RIGHT))
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT))
     {
         PlaySE(SE_SELECT);
         ChooseBoxMenu_MoveRight();
@@ -2239,7 +2239,7 @@ static void Task_ReshowPokeStorage(u8 taskId)
         }
         break;
     case 2:
-        if (!IsDma3ManagerBusyWithBgCopy() && JOY_NEW(A_BUTTON | B_BUTTON))
+        if (!IsDma3ManagerBusyWithBgCopy() && JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
         {
             ClearBottomWindow();
             sStorage->state++;
@@ -2479,7 +2479,7 @@ static void Task_PokeStorageMain(u8 taskId)
         }
         break;
     case MSTATE_WAIT_MSG:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             sStorage->state = MSTATE_HANDLE_INPUT;
@@ -2496,7 +2496,7 @@ static void Task_PokeStorageMain(u8 taskId)
         sStorage->state = MSTATE_WAIT_ERROR_MSG;
         break;
     case MSTATE_WAIT_ERROR_MSG:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -2726,7 +2726,7 @@ static void Task_OnSelectedMon(u8 taskId)
         sStorage->state = 6;
         break;
     case 6:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -2811,7 +2811,7 @@ static void Task_WithdrawMon(u8 taskId)
         }
         break;
     case 1:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -2901,7 +2901,7 @@ static void Task_DepositMenu(u8 taskId)
         }
         break;
     case 4:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintMessage(MSG_DEPOSIT_IN_WHICH_BOX);
             sStorage->state = 1;
@@ -2962,14 +2962,14 @@ static void Task_ReleaseMon(u8 taskId)
         sStorage->state++;
         break;
     case 4:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintMessage(MSG_BYE_BYE);
             sStorage->state++;
         }
         break;
     case 5:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             if (sInPartyMenu)
@@ -3002,14 +3002,14 @@ static void Task_ReleaseMon(u8 taskId)
         sStorage->state++;
         break;
     case 9:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintMessage(MSG_SURPRISE);
             sStorage->state++;
         }
         break;
     case 10:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             ReshowReleaseMon();
@@ -3025,14 +3025,14 @@ static void Task_ReleaseMon(u8 taskId)
         }
         break;
     case 12:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintMessage(MSG_WORRIED);
             sStorage->state++;
         }
         break;
     case 13:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -3125,7 +3125,7 @@ static void Task_GiveMovingItemToMon(u8 taskId)
         }
         break;
     case 3:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             sStorage->state++;
@@ -3164,7 +3164,7 @@ static void Task_ItemToBag(u8 taskId)
         }
         break;
     case 2:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             RefreshDisplayMon();
@@ -3177,7 +3177,7 @@ static void Task_ItemToBag(u8 taskId)
             SetPokeStorageTask(Task_PokeStorageMain);
         break;
     case 3:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -3217,7 +3217,7 @@ static void Task_SwitchSelectedItem(u8 taskId)
         }
         break;
     case 3:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             sStorage->state++;
@@ -3256,7 +3256,7 @@ static void Task_ShowItemInfo(u8 taskId)
             sStorage->state++;
         break;
     case 4:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PlaySE(SE_WIN_OPEN);
             sStorage->state++;
@@ -3306,7 +3306,7 @@ static void Task_CloseBoxWhileHoldingItem(u8 taskId)
         }
         break;
     case 2:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             sStorage->state = 5;
@@ -3362,7 +3362,7 @@ static void Task_PrintCantStoreMail(u8 taskId)
             sStorage->state++;
         break;
     case 2:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             sStorage->state++;
@@ -3631,7 +3631,7 @@ static void Task_OnCloseBoxPressed(u8 taskId)
         }
         break;
     case 1:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -3692,7 +3692,7 @@ static void Task_OnBPressed(u8 taskId)
         }
         break;
     case 1:
-        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
@@ -7082,7 +7082,7 @@ static u8 InBoxInput_Normal(void)
             }
             break;
         }
-        else if (JOY_NEW(START_BUTTON))
+        else if (JOY_NEW_GAB_REAL(START_BUTTON))
         {
             retVal = INPUT_MOVE_CURSOR;
             cursorArea = CURSOR_AREA_BOX_TITLE;
@@ -7090,7 +7090,7 @@ static u8 InBoxInput_Normal(void)
             break;
         }
 
-        if ((JOY_NEW(A_BUTTON)) && SetSelectionMenuTexts())
+        if ((JOY_NEW_GAB_REAL(A_BUTTON)) && SetSelectionMenuTexts())
         {
             if (!sAutoActionOn)
                 return INPUT_IN_MENU;
@@ -7124,7 +7124,7 @@ static u8 InBoxInput_Normal(void)
             }
         }
 
-        if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW_GAB_REAL(B_BUTTON))
             return INPUT_PRESSED_B;
 
         if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
@@ -7135,7 +7135,7 @@ static u8 InBoxInput_Normal(void)
                 return INPUT_SCROLL_RIGHT;
         }
 
-        if (JOY_NEW(SELECT_BUTTON))
+        if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         {
             ToggleCursorAutoAction();
             return INPUT_NONE;
@@ -7277,7 +7277,7 @@ static u8 InBoxInput_MovingMultiple(void)
             return INPUT_SCROLL_RIGHT;
         }
     }
-    else if (JOY_NEW(A_BUTTON))
+    else if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         if (MultiMove_CanPlaceSelection())
         {
@@ -7290,7 +7290,7 @@ static u8 InBoxInput_MovingMultiple(void)
             return INPUT_MULTIMOVE_UNABLE;
         }
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return INPUT_MULTIMOVE_UNABLE;
     }
@@ -7364,7 +7364,7 @@ static u8 HandleInput_InParty(void)
             break;
         }
 
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             if (sCursorPosition == PARTY_SIZE)
             {
@@ -7400,7 +7400,7 @@ static u8 HandleInput_InParty(void)
             }
         }
 
-        if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             if (sStorage->boxOption == OPTION_DEPOSIT)
                 return INPUT_PRESSED_B;
@@ -7414,7 +7414,7 @@ static u8 HandleInput_InParty(void)
             cursorArea = CURSOR_AREA_IN_BOX;
             cursorPosition = 0;
         }
-        else if (JOY_NEW(SELECT_BUTTON))
+        else if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         {
             ToggleCursorAutoAction();
             return INPUT_NONE;
@@ -7472,17 +7472,17 @@ static u8 HandleInput_OnBox(void)
                 return INPUT_SCROLL_RIGHT;
         }
 
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             AnimateBoxScrollArrows(FALSE);
             AddBoxOptionsMenu();
             return INPUT_BOX_OPTIONS;
         }
 
-        if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW_GAB_REAL(B_BUTTON))
             return INPUT_PRESSED_B;
 
-        if (JOY_NEW(SELECT_BUTTON))
+        if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         {
             ToggleCursorAutoAction();
             return INPUT_NONE;
@@ -7554,13 +7554,13 @@ static u8 HandleInput_OnButtons(void)
         }
 
         // Button was pressed, determine which
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
             return (cursorPosition == 0) ? INPUT_SHOW_PARTY : INPUT_CLOSE_BOX;
 
-        if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW_GAB_REAL(B_BUTTON))
             return INPUT_PRESSED_B;
 
-        if (JOY_NEW(SELECT_BUTTON))
+        if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         {
             ToggleCursorAutoAction();
             return INPUT_NONE;
@@ -8029,23 +8029,23 @@ static s16 HandleMenuInput(void)
 
     do
     {
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             input = Menu_GetCursorPos();
             break;
         }
-        else if (JOY_NEW(B_BUTTON))
+        else if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             PlaySE(SE_SELECT);
             input = MENU_B_PRESSED;
         }
 
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_NEW_GAB_REAL(DPAD_UP))
         {
             PlaySE(SE_SELECT);
             Menu_MoveCursor(-1);
         }
-        else if (JOY_NEW(DPAD_DOWN))
+        else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
         {
             PlaySE(SE_SELECT);
             Menu_MoveCursor(1);

@@ -310,7 +310,7 @@ void Task_HandlePorthole(u8 taskId)
         }
         break;
     case IDLE_CHECK:
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
             data[1] = 1;
         if (!ScriptMovement_IsObjectMovementFinished(OBJ_EVENT_ID_PLAYER, location->mapNum, location->mapGroup))
             return;

@@ -540,7 +540,7 @@ static void Task_HandleInput(u8 taskId)
             TryChangeDisplayedBerry(taskId, -1);
         else if (arrowKeys == DPAD_DOWN)
             TryChangeDisplayedBerry(taskId, 1);
-        else if (JOY_NEW(A_BUTTON | B_BUTTON))
+        else if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
             PrepareToCloseBerryTagScreen(taskId);
     }
 }

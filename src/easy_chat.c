@@ -1730,7 +1730,7 @@ static u16 HandleEasyChatInput_Phrase(void)
 {
     do
     {
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             ClearUnusedField();
             sEasyChatScreen->inputState = INPUTSTATE_KEYBOARD;
@@ -1739,30 +1739,30 @@ static u16 HandleEasyChatInput_Phrase(void)
             sEasyChatScreen->keyboardScrollOffset = 0;
             return ECFUNC_OPEN_KEYBOARD;
         }
-        else if (JOY_NEW(B_BUTTON))
+        else if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             return StartConfirmExitPrompt();
         }
-        else if (JOY_NEW(START_BUTTON))
+        else if (JOY_NEW_GAB_REAL(START_BUTTON))
         {
             return TryConfirmWords();
         }
-        else if (JOY_NEW(DPAD_UP))
+        else if (JOY_NEW_GAB_REAL(DPAD_UP))
         {
             sEasyChatScreen->mainCursorRow--;
             break;
         }
-        else if (JOY_NEW(DPAD_LEFT))
+        else if (JOY_NEW_GAB_REAL(DPAD_LEFT))
         {
             sEasyChatScreen->mainCursorColumn--;
             break;
         }
-        else if (JOY_NEW(DPAD_DOWN))
+        else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
         {
             sEasyChatScreen->mainCursorRow++;
             break;
         }
-        else if (JOY_NEW(DPAD_RIGHT))
+        else if (JOY_NEW_GAB_REAL(DPAD_RIGHT))
         {
             sEasyChatScreen->mainCursorColumn++;
             break;
@@ -1807,7 +1807,7 @@ static u16 HandleEasyChatInput_MainScreenButtons(void)
 {
     do
     {
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             switch (sEasyChatScreen->mainCursorColumn)
             {
@@ -1822,30 +1822,30 @@ static u16 HandleEasyChatInput_MainScreenButtons(void)
             }
         }
 
-        if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             return StartConfirmExitPrompt();
         }
-        else if (JOY_NEW(START_BUTTON))
+        else if (JOY_NEW_GAB_REAL(START_BUTTON))
         {
             return TryConfirmWords();
         }
-        else if (JOY_NEW(DPAD_UP))
+        else if (JOY_NEW_GAB_REAL(DPAD_UP))
         {
             sEasyChatScreen->mainCursorRow--;
             break;
         }
-        else if (JOY_NEW(DPAD_LEFT))
+        else if (JOY_NEW_GAB_REAL(DPAD_LEFT))
         {
             sEasyChatScreen->mainCursorColumn--;
             break;
         }
-        else if (JOY_NEW(DPAD_DOWN))
+        else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
         {
             sEasyChatScreen->mainCursorRow = 0;
             break;
         }
-        else if (JOY_NEW(DPAD_RIGHT))
+        else if (JOY_NEW_GAB_REAL(DPAD_RIGHT))
         {
             sEasyChatScreen->mainCursorColumn++;
             break;
@@ -1879,10 +1879,10 @@ static u16 HandleEasyChatInput_MainScreenButtons(void)
 
 static u16 HandleEasyChatInput_Keyboard(void)
 {
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
         return ExitKeyboardToMainScreen();
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         if (sEasyChatScreen->keyboardColumn != -1)
             return SelectKeyboardGroup();
@@ -1899,7 +1899,7 @@ static u16 HandleEasyChatInput_Keyboard(void)
         }
     }
 
-    if (JOY_NEW(SELECT_BUTTON))
+    if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         return StartSwitchKeyboardMode();
 
     if (JOY_REPEAT(DPAD_UP))
@@ -1920,19 +1920,19 @@ static u16 HandleEasyChatInput_Keyboard(void)
 // Input handling for the lower window after a word group has been selected
 static u16 HandleEasyChatInput_WordSelect(void)
 {
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         sEasyChatScreen->inputState = INPUTSTATE_KEYBOARD;
         return ECFUNC_RETURN_TO_KEYBOARD;
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
         return SelectNewWord();
 
-    if (JOY_NEW(START_BUTTON))
+    if (JOY_NEW_GAB_REAL(START_BUTTON))
         return MoveWordSelectCursor(INPUT_START);
 
-    if (JOY_NEW(SELECT_BUTTON))
+    if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         return MoveWordSelectCursor(INPUT_SELECT);
 
     if (JOY_REPEAT(DPAD_UP))
@@ -2007,10 +2007,10 @@ static u16 HandleEasyChatInput_DeleteAllYesNo(void)
 
 static u16 HandleEasyChatInput_QuizQuestion(void)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
         return ECFUNC_QUIZ_ANSWER;
 
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
         return StartConfirmExitPrompt();
 
     return ECFUNC_NONE;
@@ -2020,7 +2020,7 @@ static u16 HandleEasyChatInput_QuizQuestion(void)
 // press A or B, then return to previous state
 static u16 HandleEasyChatInput_WaitForMsg(void)
 {
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         sEasyChatScreen->inputState = GetEasyChatBackupState();
         return ECFUNC_CLOSE_PROMPT;

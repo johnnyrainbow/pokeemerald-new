@@ -991,23 +991,23 @@ u8 Menu_GetCursorPos(void)
 
 s8 Menu_ProcessInput(void)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         if (!sMenu.APressMuted)
             PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         PlaySE(SE_SELECT);
         Menu_MoveCursor(-1);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
         Menu_MoveCursor(1);
@@ -1021,23 +1021,23 @@ s8 Menu_ProcessInputNoWrap(void)
 {
     u8 oldPos = sMenu.cursorPos;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         if (!sMenu.APressMuted)
             PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         if (oldPos != Menu_MoveCursorNoWrapAround(-1))
             PlaySE(SE_SELECT);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         if (oldPos != Menu_MoveCursorNoWrapAround(1))
             PlaySE(SE_SELECT);
@@ -1049,13 +1049,13 @@ s8 Menu_ProcessInputNoWrap(void)
 
 s8 ProcessMenuInput_other(void)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         if (!sMenu.APressMuted)
             PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
@@ -1079,13 +1079,13 @@ s8 Menu_ProcessInputNoWrapAround_other(void)
 {
     u8 oldPos = sMenu.cursorPos;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         if (!sMenu.APressMuted)
             PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
@@ -1410,34 +1410,34 @@ u8 ChangeGridMenuCursorPosition(s8 deltaX, s8 deltaY)
 // Unused
 static s8 Menu_ProcessGridInput_NoSoundLimit(void)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         PlaySE(SE_SELECT);
         ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_UP);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
         ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_DOWN);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
+    else if (JOY_NEW_GAB_REAL(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
     {
         PlaySE(SE_SELECT);
         ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_LEFT, MENU_CURSOR_DELTA_NONE);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
     {
         PlaySE(SE_SELECT);
         ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_RIGHT, MENU_CURSOR_DELTA_NONE);
@@ -1451,34 +1451,34 @@ s8 Menu_ProcessGridInput(void)
 {
     u8 oldPos = sMenu.cursorPos;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         if (oldPos != ChangeGridMenuCursorPosition(0, -1))
             PlaySE(SE_SELECT);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         if (oldPos != ChangeGridMenuCursorPosition(0, 1))
             PlaySE(SE_SELECT);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
+    else if (JOY_NEW_GAB_REAL(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
     {
         if (oldPos != ChangeGridMenuCursorPosition(-1, 0))
             PlaySE(SE_SELECT);
         return MENU_NOTHING_CHOSEN;
     }
-    else if (JOY_NEW(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
     {
         if (oldPos != ChangeGridMenuCursorPosition(1, 0))
             PlaySE(SE_SELECT);
@@ -1491,12 +1491,12 @@ s8 Menu_ProcessGridInput(void)
 // Unused
 static s8 Menu_ProcessGridInputRepeat_NoSoundLimit(void)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }
@@ -1533,12 +1533,12 @@ static s8 Menu_ProcessGridInputRepeat(void)
 {
     u8 oldPos = sMenu.cursorPos;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         return sMenu.cursorPos;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         return MENU_B_PRESSED;
     }

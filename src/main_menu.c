@@ -663,7 +663,7 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
 static void Task_WaitForSaveFileErrorWindow(u8 taskId)
 {
     RunTextPrinters();
-    if (!IsTextPrinterActive(7) && (JOY_NEW(A_BUTTON)))
+    if (!IsTextPrinterActive(7) && (JOY_NEW_GAB_REAL(A_BUTTON)))
     {
         ClearWindowTilemap(7);
         ClearMainMenuWindowTilemap(&sWindowTemplates_MainMenu[7]);
@@ -698,7 +698,7 @@ static void Task_MainMenuCheckBattery(u8 taskId)
 static void Task_WaitForBatteryDryErrorWindow(u8 taskId)
 {
     RunTextPrinters();
-    if (!IsTextPrinterActive(7) && (JOY_NEW(A_BUTTON)))
+    if (!IsTextPrinterActive(7) && (JOY_NEW_GAB_REAL(A_BUTTON)))
     {
         ClearWindowTilemap(7);
         ClearMainMenuWindowTilemap(&sWindowTemplates_MainMenu[7]);
@@ -854,14 +854,14 @@ static bool8 HandleMainMenuInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         IsWirelessAdapterConnected(); // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gTasks[taskId].func = Task_HandleMainMenuAPressed;
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
@@ -869,7 +869,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
         SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(0, DISPLAY_HEIGHT));
         gTasks[taskId].func = Task_HandleMainMenuBPressed;
     }
-    else if ((JOY_NEW(DPAD_UP)) && tCurrItem > 0)
+    else if ((JOY_NEW_GAB_REAL(DPAD_UP)) && tCurrItem > 0)
     {
         if (tMenuType == HAS_MYSTERY_EVENTS && tIsScrolled == TRUE && tCurrItem == 1)
         {
@@ -881,7 +881,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
         sCurrItemAndOptionMenuCheck = tCurrItem;
         return TRUE;
     }
-    else if ((JOY_NEW(DPAD_DOWN)) && tCurrItem < tItemCount - 1)
+    else if ((JOY_NEW_GAB_REAL(DPAD_DOWN)) && tCurrItem < tItemCount - 1)
     {
         if (tMenuType == HAS_MYSTERY_EVENTS && tCurrItem == 3 && tIsScrolled == FALSE)
         {
@@ -1118,7 +1118,7 @@ static void Task_DisplayMainMenuInvalidActionError(u8 taskId)
             gTasks[taskId].tCurrItem++;
         break;
     case 3:
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
         {
             PlaySE(SE_SELECT);
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
@@ -1556,7 +1556,7 @@ static void Task_NewGameBirchSpeech_WaitForWhatsYourNameToPrint(u8 taskId)
 
 static void Task_NewGameBirchSpeech_WaitPressBeforeNameChoice(u8 taskId)
 {
-    if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+    if ((JOY_NEW_GAB_REAL(A_BUTTON)) || (JOY_NEW_GAB_REAL(B_BUTTON)))
     {
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_NewGameBirchSpeech_StartNamingScreen;
@@ -1845,7 +1845,7 @@ static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *sprite)
 
 static u8 NewGameBirchSpeech_CreateLotadSprite(u8 x, u8 y)
 {
-    return CreateMonPicSprite_Affine(SPECIES_GARDEVOIR, SHINY_ODDS, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
+    return CreateMonPicSprite_Affine(SPECIES_GARDEVOIR, 65536, 0, MON_PIC_AFFINE_FRONT, x, y, 14, TAG_NONE);
 }
 
 static void AddBirchSpeechObjects(u8 taskId)

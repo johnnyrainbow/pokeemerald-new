@@ -1844,7 +1844,7 @@ static void Task_ShowRankings(u8 taskId)
         CopyWindowToVram(tWindowId, COPYWIN_FULL);
         break;
     case 2:
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
             break;
         else
             return;
@@ -2277,7 +2277,7 @@ static u32 Cmd_PrintMessage(struct BerryCrushGame *game, u8 *args)
         }
         return 0;
     case 2:
-        if (!JOY_NEW(keys))
+        if (!JOY_NEW_GAB_REAL(keys))
             return 0;
         break;
     case 3:
@@ -2714,7 +2714,7 @@ static void UpdateLeaderGameState(struct BerryCrushGame *game)
 // Checks for input and sends data to group members
 static void HandlePlayerInput(struct BerryCrushGame *game)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
         game->localState.pushedAButton = TRUE;
 
     if (JOY_HELD(A_BUTTON))
@@ -3195,7 +3195,7 @@ static u32 Cmd_ShowResults(struct BerryCrushGame *game, u8 *args)
             game->gfx.counter--;
             return 0;
         }
-        if (!(JOY_NEW(A_BUTTON)))
+        if (!(JOY_NEW_GAB_REAL(A_BUTTON)))
             return 0;
         PlaySE(SE_SELECT);
         CloseResultsWindow(game);

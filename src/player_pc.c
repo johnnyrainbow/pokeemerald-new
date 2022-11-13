@@ -1206,7 +1206,7 @@ static void ItemStorage_PrintMessage(const u8 *string)
 static void ItemStorage_ProcessInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (JOY_NEW(SELECT_BUTTON))
+    if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
     {
         // 'Select' starts input for swapping items if not on Cancel
         ListMenuGetScrollAndRow(tListTaskId, &gPlayerPCItemPageInfo.itemsAbove, &gPlayerPCItemPageInfo.cursorPos);
@@ -1281,7 +1281,7 @@ static void ItemStorage_ProcessItemSwapInput(u8 taskId)
     s32 id;
 
     data = gTasks[taskId].data;
-    if (JOY_NEW(SELECT_BUTTON))
+    if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
     {
         ListMenuGetScrollAndRow(tListTaskId, &gPlayerPCItemPageInfo.itemsAbove, &gPlayerPCItemPageInfo.cursorPos);
         ItemStorage_FinishItemSwap(taskId, FALSE);
@@ -1296,7 +1296,7 @@ static void ItemStorage_ProcessItemSwapInput(u8 taskId)
     case LIST_NOTHING_CHOSEN:
         break;
     case LIST_CANCEL:
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
             ItemStorage_FinishItemSwap(taskId, FALSE);
         else
             ItemStorage_FinishItemSwap(taskId, TRUE);
@@ -1392,7 +1392,7 @@ static void ItemStorage_HandleQuantityRolling(u8 taskId)
     }
     else
     {
-        if (JOY_NEW(A_BUTTON))
+        if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             // Quantity confirmed, perform action
             PlaySE(SE_SELECT);
@@ -1402,7 +1402,7 @@ static void ItemStorage_HandleQuantityRolling(u8 taskId)
             else
                 ItemStorage_DoItemToss(taskId);
         }
-        else if (JOY_NEW(B_BUTTON))
+        else if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             // Canceled action
             PlaySE(SE_SELECT);
@@ -1473,7 +1473,7 @@ static void ItemStorage_TossItemNo(u8 taskId)
 static void ItemStorage_HandleRemoveItem(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         RemovePCItem(gPlayerPCItemPageInfo.cursorPos + gPlayerPCItemPageInfo.itemsAbove, tQuantity);
         DestroyListMenuTask(tListTaskId, &gPlayerPCItemPageInfo.itemsAbove, &gPlayerPCItemPageInfo.cursorPos);
@@ -1488,7 +1488,7 @@ static void ItemStorage_HandleRemoveItem(u8 taskId)
 static void ItemStorage_HandleErrorMessageInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         ItemStorage_PrintMessage(ItemStorage_GetMessage(gSaveBlock1Ptr->pcItems[gPlayerPCItemPageInfo.itemsAbove + gPlayerPCItemPageInfo.cursorPos].itemId));
         ItemStorage_ReturnToListInput(taskId);

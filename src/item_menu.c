@@ -1226,7 +1226,7 @@ static void Task_BagMenu_HandleInput(u8 taskId)
             SwitchBagPocket(taskId, MENU_CURSOR_DELTA_RIGHT, FALSE);
             return;
         default:
-            if (JOY_NEW(SELECT_BUTTON))
+            if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
             {
                 if (CanSwapItems() == TRUE)
                 {
@@ -1288,12 +1288,12 @@ static u8 GetSwitchBagPocketDirection(void)
     if (gBagMenu->pocketSwitchDisabled)
         return SWITCH_POCKET_NONE;
     LRKeys = GetLRKeysPressed();
-    if (JOY_NEW(DPAD_LEFT) || LRKeys == MENU_L_PRESSED)
+    if (JOY_NEW_GAB_REAL(DPAD_LEFT) || LRKeys == MENU_L_PRESSED)
     {
         PlaySE(SE_SELECT);
         return SWITCH_POCKET_LEFT;
     }
-    if (JOY_NEW(DPAD_RIGHT) || LRKeys == MENU_R_PRESSED)
+    if (JOY_NEW_GAB_REAL(DPAD_RIGHT) || LRKeys == MENU_R_PRESSED)
     {
         PlaySE(SE_SELECT);
         return SWITCH_POCKET_RIGHT;
@@ -1451,7 +1451,7 @@ static void Task_HandleSwappingItemsInput(u8 taskId)
 
     if (MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
     {
-        if (JOY_NEW(SELECT_BUTTON))
+        if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
         {
             PlaySE(SE_SELECT);
             ListMenuGetScrollAndRow(tListTaskId, &gBagPosition.scrollPosition[gBagPosition.pocket], &gBagPosition.cursorPosition[gBagPosition.pocket]);
@@ -1469,7 +1469,7 @@ static void Task_HandleSwappingItemsInput(u8 taskId)
                 break;
             case LIST_CANCEL:
                 PlaySE(SE_SELECT);
-                if (JOY_NEW(A_BUTTON))
+                if (JOY_NEW_GAB_REAL(A_BUTTON))
                     DoItemSwap(taskId);
                 else
                     CancelItemSwap(taskId);
@@ -1715,7 +1715,7 @@ static void Task_ItemContext_MultipleRows(u8 taskId)
     if (MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
     {
         s8 cursorPos = Menu_GetCursorPos();
-        if (JOY_NEW(DPAD_UP))
+        if (JOY_NEW_GAB_REAL(DPAD_UP))
         {
             if (cursorPos > 0 && IsValidContextMenuPos(cursorPos - 2))
             {
@@ -1723,7 +1723,7 @@ static void Task_ItemContext_MultipleRows(u8 taskId)
                 ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_UP);
             }
         }
-        else if (JOY_NEW(DPAD_DOWN))
+        else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
         {
             if (cursorPos < (gBagMenu->contextMenuNumItems - 2) && IsValidContextMenuPos(cursorPos + 2))
             {
@@ -1731,7 +1731,7 @@ static void Task_ItemContext_MultipleRows(u8 taskId)
                 ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_DOWN);
             }
         }
-        else if (JOY_NEW(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
+        else if (JOY_NEW_GAB_REAL(DPAD_LEFT) || GetLRKeysPressed() == MENU_L_PRESSED)
         {
             if ((cursorPos & 1) && IsValidContextMenuPos(cursorPos - 1))
             {
@@ -1739,7 +1739,7 @@ static void Task_ItemContext_MultipleRows(u8 taskId)
                 ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_LEFT, MENU_CURSOR_DELTA_NONE);
             }
         }
-        else if (JOY_NEW(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
+        else if (JOY_NEW_GAB_REAL(DPAD_RIGHT) || GetLRKeysPressed() == MENU_R_PRESSED)
         {
             if (!(cursorPos & 1) && IsValidContextMenuPos(cursorPos + 1))
             {
@@ -1747,12 +1747,12 @@ static void Task_ItemContext_MultipleRows(u8 taskId)
                 ChangeMenuGridCursorPosition(MENU_CURSOR_DELTA_RIGHT, MENU_CURSOR_DELTA_NONE);
             }
         }
-        else if (JOY_NEW(A_BUTTON))
+        else if (JOY_NEW_GAB_REAL(A_BUTTON))
         {
             PlaySE(SE_SELECT);
             sItemMenuActions[gBagMenu->contextMenuItemsPtr[cursorPos]].func.void_u8(taskId);
         }
-        else if (JOY_NEW(B_BUTTON))
+        else if (JOY_NEW_GAB_REAL(B_BUTTON))
         {
             PlaySE(SE_SELECT);
             sItemMenuActions[ACTION_CANCEL].func.void_u8(taskId);
@@ -1854,13 +1854,13 @@ static void Task_ChooseHowManyToToss(u8 taskId)
     {
         PrintItemQuantity(gBagMenu->windowIds[ITEMWIN_QUANTITY], tItemCount);
     }
-    else if (JOY_NEW(A_BUTTON))
+    else if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         BagMenu_RemoveWindow(ITEMWIN_QUANTITY);
         AskTossItems(taskId);
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         BagMenu_RemoveWindow(ITEMWIN_QUANTITY);
@@ -1888,7 +1888,7 @@ static void Task_RemoveItemFromBag(u8 taskId)
     u16 *scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
     u16 *cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
 
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
         RemoveBagItem(gSpecialVar_ItemId, tItemCount);
@@ -1958,7 +1958,7 @@ static void PrintItemCantBeHeld(u8 taskId)
 
 static void HandleErrorMessage(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         CloseItemMessage(taskId);
@@ -2133,13 +2133,13 @@ static void Task_ChooseHowManyToSell(u8 taskId)
     {
         PrintItemSoldAmount(gBagMenu->windowIds[ITEMWIN_QUANTITY_WIDE], tItemCount, (ItemId_GetPrice(gSpecialVar_ItemId) / 2) * tItemCount);
     }
-    else if (JOY_NEW(A_BUTTON))
+    else if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         BagMenu_RemoveWindow(ITEMWIN_QUANTITY_WIDE);
         DisplaySellItemPriceAndConfirm(taskId);
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         BagMenu_PrintCursor(tListTaskId, COLORID_NORMAL);
@@ -2181,7 +2181,7 @@ static void SellItem(u8 taskId)
 
 static void WaitAfterItemSell(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
         RemoveMoneyWindow();
@@ -2217,13 +2217,13 @@ static void Task_ChooseHowManyToDeposit(u8 taskId)
     {
         PrintItemQuantity(gBagMenu->windowIds[ITEMWIN_QUANTITY], tItemCount);
     }
-    else if (JOY_NEW(A_BUTTON))
+    else if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         BagMenu_RemoveWindow(ITEMWIN_QUANTITY);
         TryDepositItem(taskId);
     }
-    else if (JOY_NEW(B_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         PrintItemDescription(tListPosition);
@@ -2265,7 +2265,7 @@ static void WaitDepositErrorMessage(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
         PrintItemDescription(tListPosition);

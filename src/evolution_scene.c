@@ -910,7 +910,7 @@ static void Task_EvolutionScene(u8 taskId)
             // This Yes/No is used for both the initial "delete move?" prompt
             // and for the "stop learning move?" prompt
             // What Yes/No do next is determined by tLearnMoveYesState / tLearnMoveNoState
-            if (JOY_NEW(DPAD_UP) && sEvoCursorPos != 0)
+            if (JOY_NEW_GAB_REAL(DPAD_UP) && sEvoCursorPos != 0)
             {
                 // Moved onto YES
                 PlaySE(SE_SELECT);
@@ -918,7 +918,7 @@ static void Task_EvolutionScene(u8 taskId)
                 sEvoCursorPos = 0;
                 BattleCreateYesNoCursorAt(0);
             }
-            if (JOY_NEW(DPAD_DOWN) && sEvoCursorPos == 0)
+            if (JOY_NEW_GAB_REAL(DPAD_DOWN) && sEvoCursorPos == 0)
             {
                 // Moved onto NO
                 PlaySE(SE_SELECT);
@@ -926,7 +926,7 @@ static void Task_EvolutionScene(u8 taskId)
                 sEvoCursorPos = 1;
                 BattleCreateYesNoCursorAt(1);
             }
-            if (JOY_NEW(A_BUTTON))
+            if (JOY_NEW_GAB_REAL(A_BUTTON))
             {
                 HandleBattleWindow(YESNOBOX_X_Y, WINDOW_CLEAR);
                 PlaySE(SE_SELECT);
@@ -944,7 +944,7 @@ static void Task_EvolutionScene(u8 taskId)
                         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
                 }
             }
-            if (JOY_NEW(B_BUTTON))
+            if (JOY_NEW_GAB_REAL(B_BUTTON))
             {
                 // Equivalent to selecting NO
                 HandleBattleWindow(YESNOBOX_X_Y, WINDOW_CLEAR);

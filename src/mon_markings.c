@@ -394,7 +394,7 @@ bool8 HandleMonMarkingsMenuInput(void)
 {
     u16 i;
 
-    if (JOY_NEW(DPAD_UP))
+    if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         PlaySE(SE_SELECT);
         if (--sMenu->cursorPos < 0)
@@ -402,7 +402,7 @@ bool8 HandleMonMarkingsMenuInput(void)
         return TRUE;
     }
 
-    if (JOY_NEW(DPAD_DOWN))
+    if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
         if (++sMenu->cursorPos > SELECTION_CANCEL)
@@ -410,7 +410,7 @@ bool8 HandleMonMarkingsMenuInput(void)
         return TRUE;
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
 
@@ -429,7 +429,7 @@ bool8 HandleMonMarkingsMenuInput(void)
         return TRUE;
     }
 
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         return FALSE;

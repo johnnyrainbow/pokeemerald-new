@@ -1281,13 +1281,13 @@ const u8 *GetApprenticeNameInLanguage(u32 apprenticeId, s32 language)
 // Functionally unused
 static void Task_SwitchToFollowupFuncAfterButtonPress(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON) || JOY_NEW_GAB_REAL(B_BUTTON))
         SwitchTaskToFollowupFunc(taskId);
 }
 
 static void Task_ExecuteFuncAfterButtonPress(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON) || JOY_NEW_GAB_REAL(B_BUTTON))
     {
         gApprenticeFunc = (void *)(u32)(((u16)gTasks[taskId].data[0] | (gTasks[taskId].data[1] << 16)));
         gApprenticeFunc();

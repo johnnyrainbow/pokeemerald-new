@@ -217,11 +217,11 @@ static void BerryFix_Main(void)
             sBerryFix->state = MAINSTATE_BEGIN;
             break;
         case MAINSTATE_BEGIN:
-            if (TryScene(SCENE_BEGIN) && (JOY_NEW(A_BUTTON)))
+            if (TryScene(SCENE_BEGIN) && (JOY_NEW_GAB_REAL(A_BUTTON)))
                 sBerryFix->state = MAINSTATE_CONNECT;
             break;
         case MAINSTATE_CONNECT:
-            if (TryScene(SCENE_ENSURE_CONNECT) && (JOY_NEW(A_BUTTON)))
+            if (TryScene(SCENE_ENSURE_CONNECT) && (JOY_NEW_GAB_REAL(A_BUTTON)))
                 sBerryFix->state = MAINSTATE_INIT_MULTIBOOT;
             break;
         case MAINSTATE_INIT_MULTIBOOT:
@@ -262,11 +262,11 @@ static void BerryFix_Main(void)
             }
             break;
         case MAINSTATE_EXIT:
-            if (TryScene(SCENE_FOLLOW_INSTRUCT) && JOY_NEW(A_BUTTON))
+            if (TryScene(SCENE_FOLLOW_INSTRUCT) && JOY_NEW_GAB_REAL(A_BUTTON))
                 DoSoftReset();
             break;
         case MAINSTATE_FAILED:
-            if (TryScene(SCENE_TRANSMIT_FAILED) && JOY_NEW(A_BUTTON))
+            if (TryScene(SCENE_TRANSMIT_FAILED) && JOY_NEW_GAB_REAL(A_BUTTON))
                 sBerryFix->state = MAINSTATE_BEGIN;
             break;
     }

@@ -243,7 +243,7 @@ static void HandleInputChooseAction(void)
     else
         gPlayerDpadHoldFrames = 0;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
 
@@ -264,7 +264,7 @@ static void HandleInputChooseAction(void)
         }
         PlayerBufferExecCompleted();
     }
-    else if (JOY_NEW(DPAD_LEFT))
+    else if (JOY_NEW_GAB_REAL(DPAD_LEFT))
     {
         if (gActionSelectionCursor[gActiveBattler] & 1) // if is B_ACTION_USE_ITEM or B_ACTION_RUN
         {
@@ -274,7 +274,7 @@ static void HandleInputChooseAction(void)
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
         }
     }
-    else if (JOY_NEW(DPAD_RIGHT))
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT))
     {
         if (!(gActionSelectionCursor[gActiveBattler] & 1)) // if is B_ACTION_USE_MOVE or B_ACTION_SWITCH
         {
@@ -284,7 +284,7 @@ static void HandleInputChooseAction(void)
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
         }
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         if (gActionSelectionCursor[gActiveBattler] & 2) // if is B_ACTION_SWITCH or B_ACTION_RUN
         {
@@ -294,7 +294,7 @@ static void HandleInputChooseAction(void)
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
         }
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         if (!(gActionSelectionCursor[gActiveBattler] & 2)) // if is B_ACTION_USE_MOVE or B_ACTION_USE_ITEM
         {
@@ -304,7 +304,7 @@ static void HandleInputChooseAction(void)
             ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
         }
     }
-    else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
+    else if (JOY_NEW_GAB_REAL(B_BUTTON) || gPlayerDpadHoldFrames > 59)
     {
         if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT && !(gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)]) && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
         {
@@ -321,7 +321,7 @@ static void HandleInputChooseAction(void)
             PlayerBufferExecCompleted();
         }
     }
-    else if (JOY_NEW(START_BUTTON))
+    else if (JOY_NEW_GAB_REAL(START_BUTTON))
     {
         SwapHpBarsWithHpText();
     }
@@ -359,7 +359,7 @@ static void HandleInputChooseTarget(void)
     else
         gPlayerDpadHoldFrames = 0;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
@@ -367,7 +367,7 @@ static void HandleInputChooseTarget(void)
         EndBounceEffect(gMultiUsePlayerCursor, BOUNCE_HEALTHBOX);
         PlayerBufferExecCompleted();
     }
-    else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
+    else if (JOY_NEW_GAB_REAL(B_BUTTON) || gPlayerDpadHoldFrames > 59)
     {
         PlaySE(SE_SELECT);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
@@ -376,7 +376,7 @@ static void HandleInputChooseTarget(void)
         DoBounceEffect(gActiveBattler, BOUNCE_MON, 7, 1);
         EndBounceEffect(gMultiUsePlayerCursor, BOUNCE_HEALTHBOX);
     }
-    else if (JOY_NEW(DPAD_LEFT | DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_LEFT | DPAD_UP))
     {
         PlaySE(SE_SELECT);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
@@ -422,7 +422,7 @@ static void HandleInputChooseTarget(void)
         } while (i == 0);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_ShowAsMoveTarget;
     }
-    else if (JOY_NEW(DPAD_RIGHT | DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT | DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
         gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_HideAsMoveTarget;
@@ -476,7 +476,7 @@ static void HandleInputChooseMove(void)
     else
         gPlayerDpadHoldFrames = 0;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         u8 moveTarget;
 
@@ -538,13 +538,13 @@ static void HandleInputChooseMove(void)
             gSprites[gBattlerSpriteIds[gMultiUsePlayerCursor]].callback = SpriteCB_ShowAsMoveTarget;
         }
     }
-    else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
+    else if (JOY_NEW_GAB_REAL(B_BUTTON) || gPlayerDpadHoldFrames > 59)
     {
         PlaySE(SE_SELECT);
         BtlController_EmitTwoReturnValues(BUFFER_B, 10, 0xFFFF);
         PlayerBufferExecCompleted();
     }
-    else if (JOY_NEW(DPAD_LEFT))
+    else if (JOY_NEW_GAB_REAL(DPAD_LEFT))
     {
         if (gMoveSelectionCursor[gActiveBattler] & 1)
         {
@@ -556,7 +556,7 @@ static void HandleInputChooseMove(void)
             MoveSelectionDisplayMoveType();
         }
     }
-    else if (JOY_NEW(DPAD_RIGHT))
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT))
     {
         if (!(gMoveSelectionCursor[gActiveBattler] & 1) && (gMoveSelectionCursor[gActiveBattler] ^ 1) < gNumberOfMovesToChoose)
         {
@@ -568,7 +568,7 @@ static void HandleInputChooseMove(void)
             MoveSelectionDisplayMoveType();
         }
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         if (gMoveSelectionCursor[gActiveBattler] & 2)
         {
@@ -580,7 +580,7 @@ static void HandleInputChooseMove(void)
             MoveSelectionDisplayMoveType();
         }
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         if (!(gMoveSelectionCursor[gActiveBattler] & 2) && (gMoveSelectionCursor[gActiveBattler] ^ 2) < gNumberOfMovesToChoose)
         {
@@ -592,7 +592,7 @@ static void HandleInputChooseMove(void)
             MoveSelectionDisplayMoveType();
         }
     }
-    else if (JOY_NEW(SELECT_BUTTON))
+    else if (JOY_NEW_GAB_REAL(SELECT_BUTTON))
     {
         if (gNumberOfMovesToChoose > 1 && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
         {
@@ -614,40 +614,40 @@ static u32 HandleMoveInputUnused(void)
 {
     u32 var = 0;
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         var = 1;
     }
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         PlaySE(SE_SELECT);
         gBattle_BG0_X = 0;
         gBattle_BG0_Y = DISPLAY_HEIGHT * 2;
         var = 0xFF;
     }
-    if (JOY_NEW(DPAD_LEFT) && gMoveSelectionCursor[gActiveBattler] & 1)
+    if (JOY_NEW_GAB_REAL(DPAD_LEFT) && gMoveSelectionCursor[gActiveBattler] & 1)
     {
         MoveSelectionDestroyCursorAt(gMoveSelectionCursor[gActiveBattler]);
         gMoveSelectionCursor[gActiveBattler] ^= 1;
         PlaySE(SE_SELECT);
         MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
     }
-    if (JOY_NEW(DPAD_RIGHT) && !(gMoveSelectionCursor[gActiveBattler] & 1) && (gMoveSelectionCursor[gActiveBattler] ^ 1) < gNumberOfMovesToChoose)
+    if (JOY_NEW_GAB_REAL(DPAD_RIGHT) && !(gMoveSelectionCursor[gActiveBattler] & 1) && (gMoveSelectionCursor[gActiveBattler] ^ 1) < gNumberOfMovesToChoose)
     {
         MoveSelectionDestroyCursorAt(gMoveSelectionCursor[gActiveBattler]);
         gMoveSelectionCursor[gActiveBattler] ^= 1;
         PlaySE(SE_SELECT);
         MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
     }
-    if (JOY_NEW(DPAD_UP) && gMoveSelectionCursor[gActiveBattler] & 2)
+    if (JOY_NEW_GAB_REAL(DPAD_UP) && gMoveSelectionCursor[gActiveBattler] & 2)
     {
         MoveSelectionDestroyCursorAt(gMoveSelectionCursor[gActiveBattler]);
         gMoveSelectionCursor[gActiveBattler] ^= 2;
         PlaySE(SE_SELECT);
         MoveSelectionCreateCursorAt(gMoveSelectionCursor[gActiveBattler], 0);
     }
-    if (JOY_NEW(DPAD_DOWN) && !(gMoveSelectionCursor[gActiveBattler] & 2) && (gMoveSelectionCursor[gActiveBattler] ^ 2) < gNumberOfMovesToChoose)
+    if (JOY_NEW_GAB_REAL(DPAD_DOWN) && !(gMoveSelectionCursor[gActiveBattler] & 2) && (gMoveSelectionCursor[gActiveBattler] ^ 2) < gNumberOfMovesToChoose)
     {
         MoveSelectionDestroyCursorAt(gMoveSelectionCursor[gActiveBattler]);
         gMoveSelectionCursor[gActiveBattler] ^= 2;
@@ -664,7 +664,7 @@ static void HandleMoveSwitching(void)
     struct ChooseMoveStruct moveStruct;
     u8 totalPPBonuses;
 
-    if (JOY_NEW(A_BUTTON | SELECT_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON | SELECT_BUTTON))
     {
         PlaySE(SE_SELECT);
 
@@ -758,7 +758,7 @@ static void HandleMoveSwitching(void)
         MoveSelectionDisplayPpNumber();
         MoveSelectionDisplayMoveType();
     }
-    else if (JOY_NEW(B_BUTTON | SELECT_BUTTON))
+    else if (JOY_NEW_GAB_REAL(B_BUTTON | SELECT_BUTTON))
     {
         PlaySE(SE_SELECT);
         MoveSelectionDestroyCursorAt(gMultiUsePlayerCursor);
@@ -768,7 +768,7 @@ static void HandleMoveSwitching(void)
         MoveSelectionDisplayPpNumber();
         MoveSelectionDisplayMoveType();
     }
-    else if (JOY_NEW(DPAD_LEFT))
+    else if (JOY_NEW_GAB_REAL(DPAD_LEFT))
     {
         if (gMultiUsePlayerCursor & 1)
         {
@@ -786,7 +786,7 @@ static void HandleMoveSwitching(void)
                 MoveSelectionCreateCursorAt(gMultiUsePlayerCursor, 27);
         }
     }
-    else if (JOY_NEW(DPAD_RIGHT))
+    else if (JOY_NEW_GAB_REAL(DPAD_RIGHT))
     {
         if (!(gMultiUsePlayerCursor & 1) && (gMultiUsePlayerCursor ^ 1) < gNumberOfMovesToChoose)
         {
@@ -804,7 +804,7 @@ static void HandleMoveSwitching(void)
                 MoveSelectionCreateCursorAt(gMultiUsePlayerCursor, 27);
         }
     }
-    else if (JOY_NEW(DPAD_UP))
+    else if (JOY_NEW_GAB_REAL(DPAD_UP))
     {
         if (gMultiUsePlayerCursor & 2)
         {
@@ -822,7 +822,7 @@ static void HandleMoveSwitching(void)
                 MoveSelectionCreateCursorAt(gMultiUsePlayerCursor, 27);
         }
     }
-    else if (JOY_NEW(DPAD_DOWN))
+    else if (JOY_NEW_GAB_REAL(DPAD_DOWN))
     {
         if (!(gMultiUsePlayerCursor & 2) && (gMultiUsePlayerCursor ^ 2) < gNumberOfMovesToChoose)
         {
@@ -1395,21 +1395,21 @@ static void DoHitAnimBlinkSpriteEffect(void)
 
 static void PlayerHandleYesNoInput(void)
 {
-    if (JOY_NEW(DPAD_UP) && gMultiUsePlayerCursor != 0)
+    if (JOY_NEW_GAB_REAL(DPAD_UP) && gMultiUsePlayerCursor != 0)
     {
         PlaySE(SE_SELECT);
         BattleDestroyYesNoCursorAt(gMultiUsePlayerCursor);
         gMultiUsePlayerCursor = 0;
         BattleCreateYesNoCursorAt(0);
     }
-    if (JOY_NEW(DPAD_DOWN) && gMultiUsePlayerCursor == 0)
+    if (JOY_NEW_GAB_REAL(DPAD_DOWN) && gMultiUsePlayerCursor == 0)
     {
         PlaySE(SE_SELECT);
         BattleDestroyYesNoCursorAt(gMultiUsePlayerCursor);
         gMultiUsePlayerCursor = 1;
         BattleCreateYesNoCursorAt(1);
     }
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW_GAB_REAL(A_BUTTON))
     {
         HandleBattleWindow(YESNOBOX_X_Y, WINDOW_CLEAR);
         PlaySE(SE_SELECT);
@@ -1421,7 +1421,7 @@ static void PlayerHandleYesNoInput(void)
 
         PlayerBufferExecCompleted();
     }
-    if (JOY_NEW(B_BUTTON))
+    if (JOY_NEW_GAB_REAL(B_BUTTON))
     {
         HandleBattleWindow(YESNOBOX_X_Y, WINDOW_CLEAR);
         PlaySE(SE_SELECT);
