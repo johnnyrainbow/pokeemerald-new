@@ -950,7 +950,7 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             textPrinter->delayCounter--;
             if (gTextFlags.canABSpeedUpPrint && (JOY_HELD(A_BUTTON | B_BUTTON)))
             {
-                subStruct->hasPrintBeenSpedUp = TRUE;
+                subStruct->hasPrintBeenSpedUp = FALSE;
                 textPrinter->delayCounter = 0;
             }
             return RENDER_UPDATE;
