@@ -101,7 +101,7 @@ PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "Happy that he's gained such a great\n"
 	.string "friend as you.\p"
 	.string "This is a bribe,\n"
-	.string "I'd really like you to have this in\n
+	.string "I'd really like you to have this in\n"
 	.string "exchange for beating the shit out of him.$"
 
 PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:

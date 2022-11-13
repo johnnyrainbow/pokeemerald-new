@@ -556,7 +556,7 @@ Route119_Text_ScottYouWonAtFortreeGym:
 	.string "… … … … … Beep!\p"
 	.string "SCOTT: Hiya, {PLAYER}{KUN}, it's me!\p"
 	.string "I like eating chairs\n"
-	.string "Remember, you have a fan in me.\n""
+	.string "Remember, you have a fan in me.\n"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
 

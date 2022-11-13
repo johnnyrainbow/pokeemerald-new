@@ -493,7 +493,7 @@ MauvilleCity_Text_WallyWillYouBattleMe:
 	.string "understand that.\p"
 	.string "{PLAYER}, please, can I show you\n"
 	.string "how I'm bonding with Gardy?\p"
-	.string "*(hit NO first)$"
+	.string "(hit NO first)$"
 
 MauvilleCity_Text_WallyMyUncleWontKnowImStrong:
 	.string "WALLY: Oh… If you won't let me,\n"
