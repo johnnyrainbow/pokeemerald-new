@@ -249,7 +249,7 @@ Route118_Text_StevenQuestions:
 	.string "You're under arrest for\n"
 	.string "Conspiracy to collude against\p"
 	.string "The U.S. governement.\p"
-	.string "You don't think we'd find out?\p"
+	.string "You don't think we'd find out??\p"
 	.string "You colluded with Capt. Stern to file\n"
 	.string "a bullshit lawsuit to pay off witnesses.\p"
 	.string "If you don't want the S.E.C on your\n"
