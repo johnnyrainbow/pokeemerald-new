@@ -124,7 +124,7 @@ VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore:
 	.string "WALLY: Hi! {PLAYER}!\p"
 	.string "I have maximised my bond with Gardevoir!\p"
 	.string "She's my sexy queen, and \n"
-	.string "I've gotten to know her real well \n"
+	.string "I've gotten to know her real well \p"
 	.string "if you know what I mean ;) \n"
 	.string "all thanks to you!\p"
 	.string "{PLAYER}, losing to you that time\n"
@@ -141,7 +141,7 @@ VictoryRoad_1F_Text_WallyEntranceDefeat:
 
 VictoryRoad_1F_Text_WallyPostEntranceBattle:
 	.string "WALLY: Just so you know,\n"
-	.string "I fucked Garfevoir real good, \n"
+	.string "I fucked Garfevoir real good, \p"
 	.string "that's all that matters!$"
 
 VictoryRoad_1F_Text_WallyIntro:
@@ -152,13 +152,13 @@ VictoryRoad_1F_Text_WallyIntro:
 
 VictoryRoad_1F_Text_WallyDefeat:
 .string "WALLY: Just so you know,\n"
-	.string "I fucked Garfevoir real good, \n"
+	.string "I fucked Garfevoir real good, \p"
 	.string "that's all that matters!$"
 
 VictoryRoad_1F_Text_WallyPostBattle:
 	.string "WALLY: Just so you know,\n"
-	.string "I fucked Garfevoir real good, \n"
-	.string "that's all that matters!$"
+	.string "I fucked Gardevoir real good, \p"
+	.string "that's all that matters!\p"
 	.string "Fuck the POKéMON LEAGUE!$"
 
 VictoryRoad_1F_Text_EdgarIntro:

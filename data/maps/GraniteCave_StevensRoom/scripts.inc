@@ -83,37 +83,39 @@ GraniteCave_StevensRoom_Movement_StevenExitSouth:
 
 GraniteCave_StevensRoom_Text_ImStevenLetterForMe:
 	.string "My name is STEVEN.\p"
-	.string "I'm interested in rare stones,\n"
-	.string "so I travel here and there.\p"
+	.string "I work for the S.E.C.,\n"
+	.string "I've got my eye on you.\p"
 	.string "Oh?\n"
 	.string "A LETTER for me?$"
 
 GraniteCave_StevensRoom_Text_ThankYouTakeThis:
-	.string "STEVEN: Okay, thank you.\p"
-	.string "You went through all this trouble to\n"
-	.string "deliver that. I need to thank you.\p"
-	.string "Let me see…\n"
-	.string "I'll give you this TM.\p"
-	.string "It contains my favorite move,\n"
-	.string "STEEL WING.$"
+	.string "STEVEN: YOU'RE SUING ME?!?\p"
+	.string "For tortious interference?\n"
+	.string "This has to be a joke.\p"
+	.string "You will regret you crossed paths\n"
+	.string "with me.\p"
+	.string "I will bring the full brunt of\n"
+	.string "the S.E.C down on you, \p"
+	.string "and believe me, if you have ever\n"
+	.string "had any dodgy dealing ever,\p"
+	.string "I will know\n"
+	.string "Feel free to consider this a threat.$"
+	
 
 GraniteCave_StevensRoom_Text_CouldBecomeChampionLetsRegister:
-	.string "STEVEN: Your POKéMON appear quite\n"
-	.string "capable.\p"
-	.string "If you keep training, you could even\n"
-	.string "become the CHAMPION of the POKéMON\l"
-	.string "LEAGUE one day. That's what I think.\p"
-	.string "I know, since we've gotten to know each\n"
-	.string "other, let's register one another in\l"
-	.string "our POKéNAVS.\p"
-	.string "… … … … … …$"
+	.string "STEVEN: Now I remember.. You're\n"
+	.string "that asshole from Pearson Specter\p"
+	.string "Well, take my number,\n"
+	.string "cause you're gonna want it\p"
+	.string "when you come crying to me\n"
+	.string "asking for a settlement.$"
 
 GraniteCave_StevensRoom_Text_RegisteredSteven:
 	.string "Registered STEVEN\n"
 	.string "in the POKéNAV.$"
 
 GraniteCave_StevensRoom_Text_IveGotToHurryAlong:
-	.string "Now, I've got to hurry along.$"
+	.string "See you in court, asshole.$"
 
 GraniteCave_StevensRoom_Text_OhBagIsFull:
 	.string "Oh, your BAG is full…\n"

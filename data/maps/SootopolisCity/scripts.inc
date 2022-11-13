@@ -1694,9 +1694,9 @@ SootopolisCity_Text_HaventYouScaledSkyPillar:
 SootopolisCity_Text_AquaMagmaDidntMeanHarm:
 	.string "WALLACE: {PLAYER}{KUN}…\p"
 	.string "The leaders of TEAM MAGMA and AQUA,\n"
-	.string "I don't think they meant harm.\p"
-	.string "It wouldn't hurt to hear what they\n"
-	.string "have to say for themselves.$"
+	.string "Fucken idiots, what was the\p"
+	.string "point of their plan anyway?\n"
+	.string "See if those clowns can explain themselves.$"
 
 SootopolisCity_Text_ThankYouForHelpAcceptThis:
 	.string "WALLACE: {PLAYER}{KUN}…\n"
@@ -1712,7 +1712,7 @@ SootopolisCity_Text_ExplainWaterfallGoToGym:
 	.string "That HIDDEN MACHINE contains\n"
 	.string "WATERFALL.\p"
 	.string "If you have the PISS BADGE, a POKéMON\n"
-	.string "that has learned that HM move can\l"
+	.string "that has learned that HM move can\p"
 	.string "force its way up waterfalls.\p"
 	.string "And where does one get the PISS BADGE?\n"
 	.string "You know, don't you?\p"
